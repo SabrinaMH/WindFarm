@@ -7,7 +7,9 @@ Project("{A07B5EB6-E848-4116-A8D0-A826331D98C6}") = "WindFarm", "WindFarm\WindFa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindMillActor", "WindMillActor\WindMillActor.csproj", "{847E3F99-BF60-4B9D-8D84-7FA2DDBA7B5F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindMillActor.Interfaces", "WindMillActor.Interfaces\WindMillActor.Interfaces.csproj", "{3500B4D1-A94E-41AB-B1F7-D72A0678924A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindFarmWebService", "WindFarmWebService\WindFarmWebService.csproj", "{9CE7914A-B99B-474C-8680-E69F334C29B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StorageService", "StorageService\StorageService.csproj", "{638B7B35-152D-4AB9-A50E-30E677CFC191}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,10 +27,14 @@ Global
 		{847E3F99-BF60-4B9D-8D84-7FA2DDBA7B5F}.Debug|x64.Build.0 = Debug|x64
 		{847E3F99-BF60-4B9D-8D84-7FA2DDBA7B5F}.Release|x64.ActiveCfg = Release|x64
 		{847E3F99-BF60-4B9D-8D84-7FA2DDBA7B5F}.Release|x64.Build.0 = Release|x64
-		{3500B4D1-A94E-41AB-B1F7-D72A0678924A}.Debug|x64.ActiveCfg = Debug|x64
-		{3500B4D1-A94E-41AB-B1F7-D72A0678924A}.Debug|x64.Build.0 = Debug|x64
-		{3500B4D1-A94E-41AB-B1F7-D72A0678924A}.Release|x64.ActiveCfg = Release|x64
-		{3500B4D1-A94E-41AB-B1F7-D72A0678924A}.Release|x64.Build.0 = Release|x64
+		{9CE7914A-B99B-474C-8680-E69F334C29B8}.Debug|x64.ActiveCfg = Debug|x64
+		{9CE7914A-B99B-474C-8680-E69F334C29B8}.Debug|x64.Build.0 = Debug|x64
+		{9CE7914A-B99B-474C-8680-E69F334C29B8}.Release|x64.ActiveCfg = Release|x64
+		{9CE7914A-B99B-474C-8680-E69F334C29B8}.Release|x64.Build.0 = Release|x64
+		{638B7B35-152D-4AB9-A50E-30E677CFC191}.Debug|x64.ActiveCfg = Debug|x64
+		{638B7B35-152D-4AB9-A50E-30E677CFC191}.Debug|x64.Build.0 = Debug|x64
+		{638B7B35-152D-4AB9-A50E-30E677CFC191}.Release|x64.ActiveCfg = Release|x64
+		{638B7B35-152D-4AB9-A50E-30E677CFC191}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

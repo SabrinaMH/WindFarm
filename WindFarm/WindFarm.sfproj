@@ -27,6 +27,8 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\StorageService\StorageService.csproj" />
+    <ProjectReference Include="..\WindFarmWebService\WindFarmWebService.csproj" />
     <ProjectReference Include="..\WindMillActor\WindMillActor.csproj" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />

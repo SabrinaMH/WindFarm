@@ -1,16 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ApplicationManifest ApplicationTypeName="WindFarmType"
-                     ApplicationTypeVersion="1.0.0"
-                     xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="WindFarmType" ApplicationTypeVersion="3.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Parameters>
+    <Parameter Name="StorageService_MinReplicaSetSize" DefaultValue="3" />
+    <Parameter Name="StorageService_PartitionCount" DefaultValue="2" />
+    <Parameter Name="StorageService_TargetReplicaSetSize" DefaultValue="3" />
+    <Parameter Name="WindFarmWebService_InstanceCount" DefaultValue="1" />
+    <Parameter Name="WindMillActorService_PartitionCount" DefaultValue="10" />
+    <Parameter Name="WindMillActorService_MinReplicaSetSize" DefaultValue="3" />
+    <Parameter Name="WindMillActorService_TargetReplicaSetSize" DefaultValue="3" />
   </Parameters>
   <!-- Import the ServiceManifest from the ServicePackage. The ServiceManifestName and ServiceManifestVersion 
        should match the Name and Version attributes of the ServiceManifest element defined in the 
        ServiceManifest.xml file. -->
   <ServiceManifestImport>
-    <ServiceManifestRef ServiceManifestName="WindMillActorPkg" ServiceManifestVersion="1.0.0" />
+    <ServiceManifestRef ServiceManifestName="StorageServicePkg" ServiceManifestVersion="3.0.0" />
+    <ConfigOverrides />
+  </ServiceManifestImport>
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="WindFarmWebServicePkg" ServiceManifestVersion="2.0.0" />
+    <ConfigOverrides />
+  </ServiceManifestImport>
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="WindMillActorPkg" ServiceManifestVersion="2.0.0" />
   </ServiceManifestImport>
   <DefaultServices>
     <!-- The section below creates instances of service types, when an instance of this 
@@ -18,5 +29,20 @@
          ServiceFabric PowerShell module.
          
          The attribute ServiceTypeName below must match the name defined in the imported ServiceManifest.xml file. -->
+    <Service Name="StorageService">
+      <StatefulService ServiceTypeName="StorageServiceType" TargetReplicaSetSize="[StorageService_TargetReplicaSetSize]" MinReplicaSetSize="[StorageService_MinReplicaSetSize]">
+        <UniformInt64Partition PartitionCount="[StorageService_PartitionCount]" LowKey="0" HighKey="1" />
+      </StatefulService>
+    </Service>
+    <Service Name="WindFarmWebService">
+      <StatelessService ServiceTypeName="WindFarmWebServiceType" InstanceCount="[WindFarmWebService_InstanceCount]">
+        <SingletonPartition />
+      </StatelessService>
+    </Service>
+    <Service Name="WindMillActorService" GeneratedIdRef="1f09c184-b5d6-4211-85da-96cf99b892bf|Persisted">
+      <StatefulService ServiceTypeName="WindMillActorServiceType" TargetReplicaSetSize="[WindMillActorService_TargetReplicaSetSize]" MinReplicaSetSize="[WindMillActorService_MinReplicaSetSize]">
+        <UniformInt64Partition PartitionCount="[WindMillActorService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
+      </StatefulService>
+    </Service>
   </DefaultServices>
 </ApplicationManifest>

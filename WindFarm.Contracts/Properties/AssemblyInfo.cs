@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("WindMillActor")]
+[assembly: AssemblyTitle("WindMillActor.Interfaces")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("WindMillActor")]
+[assembly: AssemblyProduct("WindMillActor.Interfaces")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -19,7 +19,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("847e3f99-bf60-4b9d-8d84-7fa2ddba7b5f")]
+[assembly: Guid("3500b4d1-a94e-41ab-b1f7-d72a0678924a")]
 
 // Version information for an assembly consists of the following four values:
 //
